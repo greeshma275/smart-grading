@@ -1,9 +1,13 @@
+import os
 import requests
 import time
+from dotenv import load_dotenv
 from fpdf import FPDF
 
-subscription_key = '9VcFHjSP4PlfcPaGOFulgIZYL2VHzhWDMD0HDGyPIcstFp6FWFVJJQQJ99BEACYeBjFXJ3w3AAAFACOGP14h'
-endpoint = 'https://ocrproject12.cognitiveservices.azure.com/'
+load_dotenv()
+
+subscription_key = os.getenv("subscription_key")
+endpoint = os.getenv("endpoint")
 
 ocr_url = endpoint + "/vision/v3.2/read/analyze"
 pdf_path = "handwritten.pdf"
